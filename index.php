@@ -2,7 +2,16 @@
 declare(strict_types=1);
 
 //include all your model files here
+require 'Model/Person.php';
+require 'Model/Teacher.php';
+require 'Model/Database.php';
+require 'Model/SchoolClass.php';
+require 'Model/SchoolClassLoader.php';
+require 'Model/Student.php';
+require 'Model/StudentLoader.php';
+require 'Model/TeacherLoader.php';
 require 'Model/User.php';
+
 //include all your controllers here
 require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
