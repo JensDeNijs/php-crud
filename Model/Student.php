@@ -14,6 +14,4 @@ class Student extends Person
     {
         return $this->classId;
     }
-
-
 }
