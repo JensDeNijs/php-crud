@@ -53,7 +53,6 @@ class StudentLoader
         $handle->bindValue(':email', $email);
         $handle->bindValue(':classId', $classId);
         $handle->execute();
-
     }
 
     public function changeStudentById($name, $email, $classId, $id)
