@@ -11,8 +11,6 @@ class StudentController
         $loader2 = new SchoolClassLoader();
         $data2 = $loader2->getClasses();
 
-print_r($data2);
-
         if (isset($POST['update'])) {
             $loader->changeStudentById($POST['name'], $POST['email'], $POST['classId'], $POST['update']);
             $POST['update'] = 0;
@@ -21,7 +19,7 @@ print_r($data2);
             $loader->deleteStudentById($POST['delete']);
             $POST['delete'] = 0;
             header("Refresh:0");
-        } elseif (isset($POST['add']) and isset($POST['name']) and isset($POST['email']) and ((isset($POST['classId']) and is_numeric($POST['classId'])))) {
+        } elseif (isset($POST['add']) and isset($POST['name']) and isset($POST['email'])) {
             $loader->addStudent($POST['name'], $POST['email'], $POST['classId']);
             $POST['add'] = 0;
             header("Refresh:0");

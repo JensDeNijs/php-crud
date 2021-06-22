@@ -18,14 +18,22 @@
                     <td></td>
                     <td><input id="name" name="name"></td>
                     <td><input id="email" name="email"></td>
-                    <td><select><?php foreach ($data2 as $dt){echo "<option value=".$dt->getId().">".$dt->getName()."</option>";}    ?></select></td>
+                    <td><select name="classId"><?php foreach ($data2 as $dt) {
+                                echo "<option value=" . $dt->getId() . ">" . $dt->getName() . "</option>";
+                            } ?></select></td>
                     <td>
                         <button name="add" value="add">Add</button>
                     </td>
                 </tr>
                 <?php
                 foreach ($data as $row) {
-                    echo '<tr><td>' . $row->getId() . '</td><td>' . $row->getName() . '</td><td>' . $row->getEmail() . '</td><td>' . ($loader2->getClassById($row->getClassId()))->getName() . '</td><td><button name="update" value="' . $row->getId() . '">Update</button></td><td><button name="delete" value="' . $row->getId() . '">Delete</button></td></tr>';
+                    echo '<tr><td>' . $row->getId() . '</td><td>' . $row->getName() . '</td><td>' . $row->getEmail() . '</td><td>';
+                    if ($loader2->getClassById($row->getClassId()) === null) {
+                        echo "No Class";
+                    } else {
+                        echo ($loader2->getClassById($row->getClassId()))->getName();
+                    };
+                    echo '</td><td><button name="update" value="' . $row->getId() . '">Update</button></td><td><button name="delete" value="' . $row->getId() . '">Delete</button></td></tr>';
                 }
                 ?>
 
