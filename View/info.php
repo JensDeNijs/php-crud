@@ -9,14 +9,14 @@
                 <button type="submit" name="btn" value="class">Class</button>
                 <button type="submit" name="btn" value="teacher">Teacher</button>
             </p>
-        </form>
+
         <table>
             <?php
             if (isset($POST["btn"])) {
                 if($POST["btn"]==="student"){
                     echo '<tr><th>ID</th><th>Name</th><th>Email</th><th>ClassID</th></tr>';
                     foreach ($data as $row) {
-                        echo '<tr><td>'.$row->getId().'</td><td>'.$row->getName().'</td><td>'.$row->getEmail().'</td><td>'.$row->getClassId().'</td></tr>';
+                        echo '<tr><td>'.$row->getId().'</td><td>'.$row->getName().'</td><td>'.$row->getEmail().'</td><td>'.$row->getClassId().'</td><td><a href="" class="">Update</a></td><td><button type="" value="'.$row->getClassId().'">Delete</button></td></tr>';
                     }
                 }elseif($POST["btn"]==="class"){
                     echo '<tr><th>ID</th><th>Name</th><th>Location</th><th>TeacherID</th></tr>';
@@ -33,5 +33,6 @@
 
             ?>
         </table>
+        </form>
     </section>
 <?php require 'includes/footer.php' ?>

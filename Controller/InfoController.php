@@ -20,14 +20,11 @@ class InfoController
 
         if (isset($POST["btn"])) {
             if($POST["btn"]==="student"){
-                $loader = new StudentLoader();
-                $data = $loader->getStudents();
+
             }elseif($POST["btn"]==="class"){
-                $loader2 = new SchoolClassLoader();
-                $data = $loader2->getClasses();
+
             }elseif($POST["btn"]==="teacher"){
-                $loader = new TeacherLoader();
-                $data = $loader->getTeachers();
+
             }
         }
 

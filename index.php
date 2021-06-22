@@ -15,6 +15,9 @@ require 'Model/User.php';
 //include all your controllers here
 require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
+require 'Controller/StudentController.php';
+require 'Controller/Teachercontroller.php';
+require 'Controller/ClassController.php';
 
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!
@@ -22,6 +25,12 @@ require 'Controller/InfoController.php';
 $controller = new HomepageController();
 if(isset($_GET['page']) && $_GET['page'] === 'info') {
     $controller = new InfoController();
+}elseif(isset($_GET['page']) && $_GET['page'] === 'studentView') {
+    $controller = new StudentController();
+}elseif(isset($_GET['page']) && $_GET['page'] === 'classView') {
+    $controller = new ClassController();
+}elseif(isset($_GET['page']) && $_GET['page'] === 'teacherView') {
+    $controller = new Teachercontroller();
 }
 
 

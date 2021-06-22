@@ -8,6 +8,3 @@
     <title>Becode - Boiler plate MVC</title>
 </head>
 <body>
-    <header>
-        <h1>Welcome to my site</h1>
-    </header>
