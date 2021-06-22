@@ -30,6 +30,12 @@ class StudentLoader
             }
         }
     }
+    public function deleteStudentById($id){
+        $con = Database::openConnection();
+        $handle = $con->prepare('DELETE FROM student WHERE Id = :id');
+        $handle->bindValue(':id', $id);
+        $handle->execute();
+    }
 
 
 }
