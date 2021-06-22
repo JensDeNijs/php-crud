@@ -37,5 +37,23 @@ class StudentLoader
         $handle->execute();
     }
 
+    public function addStudent($name,$email,$id){
+        $con = Database::openConnection();
+        $handle = $con->prepare('INSERT INTO student (Name, Email, ClassId) VALUES (:name, :email, :classId)');
+        $handle->bindValue(':name', $name);
+        $handle->bindValue(':email', $email);
+        $handle->bindValue(':classId', $id);
+        $handle->execute();
+
+    }
+    public function changeStudentById($name,$email,$classId,$id){
+        $con = Database::openConnection();
+        $handle = $con->prepare('UPDATE student set Name = :name, Email = :email, ClassId = :classId WHERE id = :id');
+        $handle->bindValue(':name', $name);
+        $handle->bindValue(':email', $email);
+        $handle->bindValue(':classId', $classId);
+        $handle->bindValue(':id', $id);
+        $handle->execute();
+    }
 
 }
