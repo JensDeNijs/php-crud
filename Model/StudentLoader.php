@@ -5,22 +5,27 @@ class StudentLoader
 {
     private array $students;
 
-
     public function __construct()
+    {
+        $this->loadStudents();
+    }
+
+    public function getStudents(): array
+    {
+        $this->loadStudents();
+        return $this->students;
+    }
+
+    public function loadStudents()
     {
         $con = Database::openConnection();
         $handle = $con->prepare('SELECT * FROM student');
         $handle->execute();
         $selectedStudents = $handle->fetchAll();
-
+        $this->students = [];
         foreach ($selectedStudents as $student) {
             $this->students[] = new Student((int)$student['Id'], $student['Name'], $student['Email'], (int)$student['ClassId']);
         }
-    }
-
-    public function getStudents(): array
-    {
-        return $this->students;
     }
 
     public function getStudentById(int $id)
