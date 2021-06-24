@@ -50,17 +50,14 @@ class TeacherLoader
     public function deleteTeacherById($id)
     {
         $con = Database::openConnection();
-        $handle3 = $con->prepare('SELECT * FROM class WHERE TeacherId = :id3');
-        $handle3->bindValue(':id3', $id);
-        $handle3->execute();
-        $checkClass = $handle3->fetchAll();
+        $handle2 = $con->prepare('SELECT * FROM class WHERE TeacherId = :id3');
+        $handle2->bindValue(':id3', $id);
+        $handle2->execute();
+        $checkClass = $handle2->fetchAll();
 
         if (!empty($checkClass)) {
             return "Teacher is still assigned to a class";
         } else {
-            $handle2 = $con->prepare('UPDATE class SET TeacherId = NULL WHERE TeacherId = :id2');
-            $handle2->bindValue(':id2', $id);
-            $handle2->execute();
             $handle = $con->prepare('DELETE FROM teacher WHERE Id = :id');
             $handle->bindValue(':id', $id);
             $handle->execute();
@@ -76,4 +73,12 @@ class TeacherLoader
         $handle->execute();
     }
 
+    public function getTeacherByStudentId(int $id)
+    {
+        $con = Database::openConnection();
+        $handle = $con->prepare('SELECT teacher.* FROM teacher INNER JOIN class ON teacher.Id = class.TeacherId INNER JOIN student ON class.Id = student.ClassId WHERE student.Id = :id');
+        $handle->bindValue(':id', $id);
+        $handle->execute();
+        return $selectedTeacher = $handle->fetchAll();
+    }
 }

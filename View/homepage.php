@@ -7,6 +7,7 @@ Anything complex should be calculated in the model -->
     <p><a href="index.php?page=studentView">Student Table</a></p>
     <p><a href="index.php?page=classView">Class Table</a></p>
     <p><a href="index.php?page=teacherView">Teacher Table</a></p>
+    <p><a href="index.php?page=info">Info Table</a></p>
     <p>Put your content here.</p>
 </section>
 <?php require 'includes/footer.php'?>
