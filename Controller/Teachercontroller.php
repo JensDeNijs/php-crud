@@ -11,7 +11,7 @@ class Teachercontroller
             $loader->changeTeacherById($POST['name'], $POST['email'], $POST['update']);
             $POST['update'] = 0;
         } elseif (isset($POST['delete'])) {
-            $loader->deleteTeacherById($POST['delete']);
+            $teacherMessage = $loader->deleteTeacherById($POST['delete']);
             $POST['delete'] = 0;
         } elseif (isset($POST['add']) and isset($POST['name']) and isset($POST['email'])) {
             $loader->addTeacher($POST['name'], $POST['email']);

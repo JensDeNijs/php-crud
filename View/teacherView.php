@@ -7,6 +7,7 @@
         <p><a href="index.php?page=teacherView">Teacher Table</a></p>
 
         <form action="" method="POST">
+            <h4><?php if(isset($teacherMessage)){echo( $teacherMessage) ;} ?></h4>
             <table>
                 <tr>
                     <th>ID</th>

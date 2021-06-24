@@ -8,7 +8,6 @@ class ClassController
         $loader = new SchoolClassLoader();
         $loader2 = new TeacherLoader();
 
-        print_r($POST);
         if (isset($POST['update'])) {
             $loader->changeClassById($POST['name'], $POST['location'], $POST['teacherId'], $POST['update']);
             $POST['update'] = 0;
