@@ -16,8 +16,6 @@
                 <?php
 
                 if (isset($_SESSION['table'])) {
-
-
                     switch ($_SESSION['table']) {
 
                         case 'student':
@@ -147,7 +145,6 @@
                                 <td>'.($loader3->getTeacherById($POST['rowTeacher']))->getName().'</td>
                                 <td>'.($loader3->getTeacherById($POST['rowTeacher']))->getEmail().'</td>
                             </tr>
-                            
                             ';
 
 
@@ -193,9 +190,7 @@
                                      }
                             break;
                     }
-
                 }
-
                 ?>
             </table>
         </form>

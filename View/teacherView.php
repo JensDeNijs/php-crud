@@ -5,6 +5,7 @@
         <p><a href="index.php?page=studentView">Student Table</a></p>
         <p><a href="index.php?page=classView">Class Table</a></p>
         <p><a href="index.php?page=teacherView">Teacher Table</a></p>
+        <p><a href="index.php?page=info">Info Table</a></p>
 
         <form action="" method="POST">
             <h4><?php if(isset($teacherMessage)){echo( $teacherMessage) ;} ?></h4>
