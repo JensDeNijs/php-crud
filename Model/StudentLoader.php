@@ -4,7 +4,7 @@
 class StudentLoader
 {
     private array $students;
-
+    private array $studentsByClass;
     public function __construct()
     {
         $this->loadStudents();
@@ -66,4 +66,12 @@ class StudentLoader
         $handle->execute();
     }
 
+    public function getAllStudentsByTeacherId($id){
+        $con = Database::openConnection();
+        $handle = $con->prepare('SELECT student.* FROM student INNER JOIN class ON student.ClassId = class.Id INNER JOIN teacher ON class.TeacherId = teacher.Id WHERE teacher.Id = :id');
+        $handle->bindValue(':id', $id);
+        $handle->execute();
+        return $handle->fetchAll();
+
+    }
 }

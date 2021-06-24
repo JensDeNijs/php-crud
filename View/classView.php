@@ -26,13 +26,7 @@
             </tr>
             <?php
             foreach ($data as $row) {
-                echo '<tr><td>' . $row->getId() . '</td><td>' . $row->getName() . '</td><td>' . $row->getLocation() . '</td><td>';
-                if(($loader2->getTeacherById($row->getTeacherId()))===null ){
-                    echo "No Teacher";
-                }else{
-                   echo ($loader2->getTeacherById($row->getTeacherId()))->getName();
-                }
-                echo '</td><td><button name="update" value="' . $row->getId() . '">Update</button></td><td><button name="delete" value="' . $row->getId() . '">Delete</button></td></tr>';
+                echo '<tr><td>' . $row->getId() . '</td><td>' . $row->getName() . '</td><td>' . $row->getLocation() . '</td><td>'.($loader2->getTeacherById($row->getTeacherId()))->getName().'</td><td><button name="update" value="' . $row->getId() . '">Update</button></td><td><button name="delete" value="' . $row->getId() . '">Delete</button></td></tr>';
             }
             ?>
 

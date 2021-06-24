@@ -23,7 +23,14 @@ class InfoController
         }elseif (isset($POST['rowTeacher'])) {
             $_SESSION["table"] = 'rowTeacher';
             $_SESSION["teacherId"] = $POST['rowTeacher'];
+        }elseif (isset($POST['getAllStudentsByClass'])) {
+            $_SESSION["table"] = 'getAllStudentsByClass';
+            $_SESSION["teacherId"] = $POST['getAllStudentsByClass'];
+        }elseif (isset($POST['getAllStudentsByTeacher'])) {
+            $_SESSION["table"] = 'getAllStudentsByTeacher';
+            $_SESSION["teacherId"] = $POST['getAllStudentsByTeacher'];
         }
+
 
 
         $data = $loader->getStudents();

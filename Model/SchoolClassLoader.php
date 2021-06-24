@@ -36,6 +36,15 @@ class SchoolClassLoader
             }
         }
     }
+    public function getClassByTeacherId(int $id)
+    {
+        foreach ($this->classes as $class) {
+            if ($class->getTeacherId() === $id) {
+                return $class;
+            }
+        }
+    }
+
 
     public function addClass($name, $location, $teacherId)
     {
