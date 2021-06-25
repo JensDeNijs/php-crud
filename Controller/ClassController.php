@@ -8,13 +8,13 @@ class ClassController
         $loader = new SchoolClassLoader();
         $loader2 = new TeacherLoader();
 
-        if (isset($POST['update'])) {
+        if (!empty($POST['update'])and !empty($POST['name']) and !empty($POST['location'])) {
             $loader->changeClassById($POST['name'], $POST['location'], $POST['teacherId'], $POST['update']);
             $POST['update'] = 0;
-        }elseif (isset($POST['delete'])) {
+        }elseif (!empty($POST['delete'])) {
             $loader->deleteClassById($POST['delete']);
             $POST['delete'] = 0;
-        } elseif (isset($POST['add']) and isset($POST['name']) and isset($POST['location'])) {
+        } elseif (!empty($POST['add']) and !empty($POST['name']) and !empty($POST['location'])) {
             $loader->addClass($POST['name'], $POST['location'], $POST['teacherId']);
             $POST['add'] = 0;
         }

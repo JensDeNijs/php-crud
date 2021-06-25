@@ -34,7 +34,7 @@
                     } else {
                         echo ($loader2->getClassById($row->getClassId()))->getName();
                     };
-                    echo '</td><td><button name="update" value="' . $row->getId() . '">Update</button></td><td><button name="delete" value="' . $row->getId() . '">Delete</button></td></tr>';
+                    echo '</td><td><button name="update" value="' . $row->getId() . '">Update</button></td><td><button name="delete" value="' . $row->getId() . '">Delete</button></td><td><a href="index.php?page=studentView&id='.$row->getId().'">Details</a></td></tr>';
                 }
                 ?>
 

@@ -36,4 +36,5 @@ if(isset($_GET['page']) && $_GET['page'] === 'info') {
 }
 
 
+
 $controller->render($_GET, $_POST);
