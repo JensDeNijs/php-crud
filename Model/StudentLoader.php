@@ -74,4 +74,13 @@ class StudentLoader
         return $handle->fetchAll();
 
     }
+
+    public function getAllStudentsByClassId($id){
+        $con = Database::openConnection();
+        $handle = $con->prepare('SELECT student.* FROM student INNER JOIN class ON student.ClassId = class.Id WHERE class.Id = :id');
+        $handle->bindValue(':id', $id);
+        $handle->execute();
+        return $handle->fetchAll();
+
+    }
 }

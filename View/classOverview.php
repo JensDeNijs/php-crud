@@ -21,8 +21,8 @@ require 'includes/header.php' ?>
                 <td><?php echo $data3->getId()?></td>
                 <td><?php echo $data3->getName()?></td>
                 <td><?php echo $data3->getLocation()?></td>
-                <td><a href=""><?php echo $teacher ?></a></td>
-                <td><a href="">Show all <?php echo $students?> students</a></td>
+                <td><a href="index.php?page=teacherView&id=<?php echo $data3->getTeacherId()?>"><?php echo $teacher?></a></td>
+                <td><a href="index.php?page=studentView&classid=<?php echo $data3->getId()?>">Show all <?php echo $students?> students</a></td>
             </tr>
         </table>
 

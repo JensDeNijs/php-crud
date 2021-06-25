@@ -31,8 +31,6 @@ if(isset($_GET['page']) && $_GET['page'] === 'info') {
     $controller = new ClassController();
 }elseif(isset($_GET['page']) && $_GET['page'] === 'teacherView') {
     $controller = new Teachercontroller();
-}elseif(isset($_GET['page']) && $_GET['page'] === 'info') {
-    $controller = new InfoController();
 }
 
 

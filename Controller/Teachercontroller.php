@@ -7,12 +7,12 @@ class Teachercontroller
     {
         $loader = new TeacherLoader();
         $loader2 = new StudentLoader();
-
+        print_r($GET);
         if (isset($GET['id'])) {
             $data3 = $loader->getTeacherById((int)$GET['id']);
-            $students =0;
-            foreach (($loader2->getAllStudentsByTeacherId($data3->getId())) as $row){
-                $students +=1;
+            $students = 0;
+            foreach (($loader2->getAllStudentsByTeacherId($data3->getId())) as $row) {
+                $students += 1;
             }
 
 

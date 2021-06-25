@@ -9,14 +9,20 @@ class StudentController
         $loader2 = new SchoolClassLoader();
         $loader3 = new TeacherLoader();
         //Vang hier ID op, als er 1 is, toon detail pagina. anders next if
-        var_dump($GET);
+       // var_dump($GET);
 
-        if(isset($GET['id'])){
+        if (isset($GET['id'])) {
             $data3 = $loader->getStudentById((int)$GET['id']);
             $teacherNew = $loader3->getTeacherByStudentId($data3->getId());
             require 'View/studentOverview.php';
-        }else {
-            if (!empty($POST['update'])and !empty($POST['name']) and !empty($POST['email'])) {
+        } elseif (isset($GET['teacherid'])) {
+            $students= $loader->getAllStudentsByTeacherId($GET['teacherid']);
+            require 'View/studentList.php';
+        } elseif (isset($GET['classid'])) {
+            $students=$loader->getAllStudentsByClassId($GET['classid']);
+            require 'View/studentList.php';
+        } else {
+            if (!empty($POST['update']) and !empty($POST['name']) and !empty($POST['email'])) {
                 $loader->changeStudentById($POST['name'], $POST['email'], $POST['classId'], $POST['update']);
                 $POST['update'] = 0;
             } elseif (!empty($POST['delete'])) {
