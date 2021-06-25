@@ -16,13 +16,13 @@ class StudentController
             $teacherNew = $loader3->getTeacherByStudentId($data3->getId());
             require 'View/studentOverview.php';
         }else {
-            if (isset($POST['update'])) {
+            if (!empty($POST['update'])and !empty($POST['name']) and !empty($POST['email'])) {
                 $loader->changeStudentById($POST['name'], $POST['email'], $POST['classId'], $POST['update']);
                 $POST['update'] = 0;
-            } elseif (isset($POST['delete'])) {
+            } elseif (!empty($POST['delete'])) {
                 $loader->deleteStudentById($POST['delete']);
                 $POST['delete'] = 0;
-            } elseif (isset($POST['add']) and isset($POST['name']) and isset($POST['email'])) {
+            } elseif (!empty($POST['add']) and !empty($POST['name']) and !empty($POST['email'])) {
                 $loader->addStudent($POST['name'], $POST['email'], $POST['classId']);
                 $POST['add'] = 0;
             }

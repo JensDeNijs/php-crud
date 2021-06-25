@@ -25,7 +25,7 @@
                 </tr>
                 <?php
                 foreach ($data as $row) {
-                    echo '<tr><td>' . $row->getId() . '</td><td>' . $row->getName() . '</td><td>' . $row->getEmail() . '</td><td><button name="update" value="' . $row->getId() . '">Update</button></td><td><button name="delete" value="' . $row->getId() . '">Delete</button></td></tr>';
+                    echo '<tr><td>' . $row->getId() . '</td><td>' . $row->getName() . '</td><td>' . $row->getEmail() . '</td><td><button name="update" value="' . $row->getId() . '">Update</button></td><td><button name="delete" value="' . $row->getId() . '">Delete</button></td><td><a href="index.php?page=teacherView&id='.$row->getId().'">Details</a></td></tr>';
                 }
 
                 ?>
